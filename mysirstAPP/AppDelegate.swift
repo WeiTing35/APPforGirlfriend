@@ -12,7 +12,8 @@ import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+     var window: UIWindow?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,6 +26,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Not Allowed")
             }
         }
+        
+        //判斷是否為第一次
+        if(!UserDefaults.standard.bool(forKey: "abcd")){
+                   UserDefaults.standard.set(true, forKey: "abcd")
+                   UserDefaults.standard.set(true, forKey: "first")
+//            let introductionViewController = secondVCViewController()
+//            self.window!.rootViewController = introductionViewController
+            
+            print("first")
+
+            
+               }else{
+                   UserDefaults.standard.set(false, forKey: "first")
+                   print("unfirst")
+//            let introductionViewController = IntroductionViewController()
+//            self.window!.rootViewController = introductionViewController
+            
+            
+               }
+        
+//
+//
         
         return true
     }

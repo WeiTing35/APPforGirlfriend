@@ -104,6 +104,9 @@
                                 <state key="normal" title="notification" image="notification (1)">
                                     <color key="titleShadowColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="set_date:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c0C-II-gMw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAZ-a3-mcw">
                                 <rect key="frame" x="229" y="142" width="138" height="138"/>

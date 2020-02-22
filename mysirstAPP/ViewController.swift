@@ -17,7 +17,54 @@ class ViewController: UIViewController {
         createNotification()
         
     }
+    
+    @IBAction func set_date(_ sender: Any) {
 
+        // 建立一個提示框
+            let alertController = UIAlertController(
+                title: "提醒時間",
+                message: "請輸入想念提醒時間",
+                preferredStyle: .alert)
+
+        // 建立兩個輸入框
+        alertController.addTextField {
+                (textField: UITextField!) -> Void in
+                textField.placeholder = "時間"
+            }
+
+            // 建立[取消]按鈕
+            let cancelAction = UIAlertAction(
+              title: "取消",
+              style: .cancel,
+              handler: nil)
+            alertController.addAction(cancelAction)
+
+            // 建立[登入]按鈕
+            let okAction = UIAlertAction(
+              title: "登入",
+              style: UIAlertAction.Style.default) {
+                (action: UIAlertAction!) -> Void in
+                let acc =
+                  (alertController.textFields?.first)!
+                    as UITextField
+//                let password =
+//                  (alertController.textFields?.last)!
+//                    as UITextField
+
+                print("輸入的帳號為：\(String(describing: acc.text))")
+//                print("輸入的密碼為：\(String(describing: password.text))")
+              }
+        
+            alertController.addAction(okAction)
+
+            // 顯示提示框
+        self.present(
+              alertController,
+              animated: true,
+              completion: nil)
+        
+    }
+    
     @IBAction func showMessage(sender: UIButton) {
       
         let formatter = DateFormatter()
@@ -30,8 +77,6 @@ class ViewController: UIViewController {
 //         print("相差天數爲 ==", days)
 
          let alertController = UIAlertController(title: "交往天數", message: "第 " + String(days) + " 天 🤟", preferredStyle: UIAlertController.Style.alert)
-        
-     
         
          alertController.addAction(UIAlertAction(title: " ♥♥♥ OK ♥♥♥ ", style: .destructive, handler: nil))
             

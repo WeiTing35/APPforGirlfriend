@@ -85,7 +85,7 @@ class thirdVC: UIViewController {
            emptyLocation = imageLocationArray[blankNum]
 
            // 拼圖打亂
-        for _ in 1...200{
+        for _ in 1...20{
             print("check 2" )
                let randomNum = Int.random(in: 0...8)
                process(index : randomNum, image : imageArray[randomNum])
