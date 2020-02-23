@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +18,19 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       segue.destination.popoverPresentationController?.delegate = self
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+       return .none
+    }
+    
     @IBAction func set_date(_ sender: Any) {
 
         //顯示 popovers
-performSegue(withIdentifier: "show_popovers", sender: nil)
+        performSegue(withIdentifier: "show_popovers", sender: nil)
+        
         // 建立一個提示框
 //            let alertController = UIAlertController(
 //                title: "提醒時間",
